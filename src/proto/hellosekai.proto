@@ -1,24 +1,45 @@
 syntax = "proto3";
 
+option java_multiple_files = true;
 
-option java_package = "io.ep";
+service Distr {
 
-
-
-service hellosekai {
-
-
-    rpc PingPong(void) returns(void) {}
-
-    rpc getLong(longValue) returns(longValue) {}
-
-
+    rpc SendVoid(void) returns(void) {}
+    rpc SendLong(Long) returns(Long) {}
+    rpc SendLongFamily(LongFamily) returns(Long) {}
+    rpc SendString(String) returns(String) {}
+    rpc SendComplex(Person) returns(Person) {}
 }
 
 
+message void { 
+}
 
-message void {}
+message Long { 
+    int64 value = 1; 
+}
+message LongFamily { 
+    repeated int64 value = 1; 
+}
+message String { 
+    string value = 1; 
+}
 
-message longValue { int64 value = 536870911; }
-
-message text { string texto = 1; }
+message Person {
+    string name = 1;
+    int32 id = 2;
+    string email = 3;
+  
+    enum PhoneType {
+      MOBILE = 0;
+      HOME = 1;
+      WORK = 2;
+    }
+  
+    message PhoneNumber {
+      string number = 1;
+      PhoneType type = 2;
+    }
+  
+    repeated PhoneNumber phones = 4;
+}
