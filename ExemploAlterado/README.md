@@ -2,11 +2,11 @@ O passo a passo do site original funciona aqui.
 
 Então, na pasta:
 
-#Buildar
+#### Build
 ./gradlew installDist
 
-#Abrir servidor
+#### Abrir servidor
 ./build/install/examples/bin/hello-world-server
 
-#Abrir cliente e fazer requisição
+#### Abrir cliente e fazer requisição
 ./build/install/examples/bin/hello-world-client
