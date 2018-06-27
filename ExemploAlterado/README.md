@@ -3,10 +3,10 @@ O passo a passo do site original funciona aqui.
 Então, na pasta:
 
 #### Build
-./gradlew installDist
+> ./gradlew installDist
 
 #### Abrir servidor
-./build/install/examples/bin/hello-world-server
+> ./build/install/examples/bin/hello-world-server
 
 #### Abrir cliente e fazer requisição
-./build/install/examples/bin/hello-world-client
+> ./build/install/examples/bin/hello-world-client
