@@ -96,6 +96,32 @@ public class HelloWorldClient {
    * Greet server. If provided, the first element of {@code args} is the name to use in the
    * greeting.
    */
+  public long computeString(String text, int it) {
+    long time = 0, time1, time2;
+
+    for (int i = 0; i<it; i++) {
+      time1 = System.currentTimeMillis();
+      greet(text);
+      time2 = System.currentTimeMillis();
+      time += (time2 - time1);
+    }
+
+    time = time / it;
+    return time;
+  }
+
+  public long computeLong(long num, int it) {
+    long time = 0, time1, time2;
+    for (int i = 0; i<it; i++) {
+      time1 = System.currentTimeMillis();
+      sendLong(num);
+      time2 = System.currentTimeMillis();
+      time += (time2 - time1);
+    }
+    time = time / it;
+    return time;
+  }
+
   public static void main(String[] args) throws Exception {
     HelloWorldClient client = new HelloWorldClient("localhost", 50051);
     try {
