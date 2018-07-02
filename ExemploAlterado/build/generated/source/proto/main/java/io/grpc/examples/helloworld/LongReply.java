@@ -4,10 +4,6 @@
 package io.grpc.examples.helloworld;
 
 /**
- * <pre>
- * The response message containing the greetings
- * </pre>
- *
  * Protobuf type {@code helloworld.LongReply}
  */
 public  final class LongReply extends
@@ -20,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LongReply() {
-    aNumber_ = 0L;
+    replyLong_ = 0L;
   }
 
   @java.lang.Override
@@ -56,7 +52,7 @@ private static final long serialVersionUID = 0L;
           }
           case 8: {
 
-            aNumber_ = input.readInt64();
+            replyLong_ = input.readInt64();
             break;
           }
         }
@@ -83,13 +79,13 @@ private static final long serialVersionUID = 0L;
             io.grpc.examples.helloworld.LongReply.class, io.grpc.examples.helloworld.LongReply.Builder.class);
   }
 
-  public static final int ANUMBER_FIELD_NUMBER = 1;
-  private long aNumber_;
+  public static final int REPLYLONG_FIELD_NUMBER = 1;
+  private long replyLong_;
   /**
-   * <code>int64 aNumber = 1;</code>
+   * <code>int64 replyLong = 1;</code>
    */
-  public long getANumber() {
-    return aNumber_;
+  public long getReplyLong() {
+    return replyLong_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -104,8 +100,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (aNumber_ != 0L) {
-      output.writeInt64(1, aNumber_);
+    if (replyLong_ != 0L) {
+      output.writeInt64(1, replyLong_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +111,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (aNumber_ != 0L) {
+    if (replyLong_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, aNumber_);
+        .computeInt64Size(1, replyLong_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,8 +131,8 @@ private static final long serialVersionUID = 0L;
     io.grpc.examples.helloworld.LongReply other = (io.grpc.examples.helloworld.LongReply) obj;
 
     boolean result = true;
-    result = result && (getANumber()
-        == other.getANumber());
+    result = result && (getReplyLong()
+        == other.getReplyLong());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,9 +144,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ANUMBER_FIELD_NUMBER;
+    hash = (37 * hash) + REPLYLONG_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getANumber());
+        getReplyLong());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -245,10 +241,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The response message containing the greetings
-   * </pre>
-   *
    * Protobuf type {@code helloworld.LongReply}
    */
   public static final class Builder extends
@@ -284,7 +276,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      aNumber_ = 0L;
+      replyLong_ = 0L;
 
       return this;
     }
@@ -308,7 +300,7 @@ private static final long serialVersionUID = 0L;
 
     public io.grpc.examples.helloworld.LongReply buildPartial() {
       io.grpc.examples.helloworld.LongReply result = new io.grpc.examples.helloworld.LongReply(this);
-      result.aNumber_ = aNumber_;
+      result.replyLong_ = replyLong_;
       onBuilt();
       return result;
     }
@@ -350,8 +342,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.grpc.examples.helloworld.LongReply other) {
       if (other == io.grpc.examples.helloworld.LongReply.getDefaultInstance()) return this;
-      if (other.getANumber() != 0L) {
-        setANumber(other.getANumber());
+      if (other.getReplyLong() != 0L) {
+        setReplyLong(other.getReplyLong());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -380,28 +372,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long aNumber_ ;
+    private long replyLong_ ;
     /**
-     * <code>int64 aNumber = 1;</code>
+     * <code>int64 replyLong = 1;</code>
      */
-    public long getANumber() {
-      return aNumber_;
+    public long getReplyLong() {
+      return replyLong_;
     }
     /**
-     * <code>int64 aNumber = 1;</code>
+     * <code>int64 replyLong = 1;</code>
      */
-    public Builder setANumber(long value) {
+    public Builder setReplyLong(long value) {
       
-      aNumber_ = value;
+      replyLong_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 aNumber = 1;</code>
+     * <code>int64 replyLong = 1;</code>
      */
-    public Builder clearANumber() {
+    public Builder clearReplyLong() {
       
-      aNumber_ = 0L;
+      replyLong_ = 0L;
       onChanged();
       return this;
     }

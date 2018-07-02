@@ -30,6 +30,8 @@ service Greeter {
   rpc SayVoid (VoidRequest) returns (VoidReply) {}
   // Sends 8 long
   rpc SayEightLong (EightLongRequest) returns (EightLongReply) {}
+  // Sends 8 long
+  rpc SayPerson (Person) returns (Person) {}
 }
 
 message HelloRequest {
@@ -78,9 +80,5 @@ message Person {
     PhoneType type = 2;
   }
 
-  PhoneNumber phones = 4;
-}
-
-message AddressBook {
-  Person people = 1;
+  repeated PhoneNumber phones = 4;
 }

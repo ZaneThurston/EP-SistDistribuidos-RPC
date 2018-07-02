@@ -8,7 +8,7 @@ public interface LongRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 rNumber = 1;</code>
+   * <code>int64 reqLong = 1;</code>
    */
-  long getRNumber();
+  long getReqLong();
 }

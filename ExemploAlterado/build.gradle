@@ -99,9 +99,9 @@ task helloWorldClient(type: CreateStartScripts) {
   classpath = jar.outputs.files + project.configurations.runtime
 }
 
-task compressingHelloWorldClient(type: CreateStartScripts) {
-  mainClassName = 'io.grpc.examples.experimental.CompressingHelloWorldClient'
-  applicationName = 'compressing-hello-world-client'
+task Main(type: CreateStartScripts) {
+  mainClassName = 'io.grpc.examples.helloworld.Main'
+  applicationName = 'Main'
   outputDir = new File(project.buildDir, 'tmp')
   classpath = jar.outputs.files + project.configurations.runtime
 }
@@ -109,6 +109,6 @@ task compressingHelloWorldClient(type: CreateStartScripts) {
 applicationDistribution.into('bin') {
   from(helloWorldServer)
   from(helloWorldClient)
-  from(compressingHelloWorldClient)
+  from(Main)
   fileMode = 0755
 }

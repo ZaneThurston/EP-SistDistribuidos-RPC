@@ -20,9 +20,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,6 +78,7 @@ public class HelloWorldClient {
       return;
     }
   }
+
   public void sendVoid() {
 
     VoidRequest request = VoidRequest.newBuilder().build();
@@ -91,7 +90,7 @@ public class HelloWorldClient {
       return;
     }
   }
-	 
+ 
   public void sendEightLong(Long[] arrayLong) {
 
     Iterable<Long> ite = Arrays.asList(arrayLong);
@@ -106,47 +105,15 @@ public class HelloWorldClient {
     }
   }
 
-  /**
-   * Greet server. If provided, the first element of {@code args} is the name to use in the
-   * greeting.
-   */
-  public long computeString(String text, int it) {
-    long time = 0, time1, time2;
+  public void sendPerson(Person pessoa) {
 
-    for (int i = 0; i<it; i++) {
-      time1 = System.currentTimeMillis();
-      greet(text);
-      time2 = System.currentTimeMillis();
-      time += (time2 - time1);
-    }
-
-    time = time / it;
-    return time;
-  }
-
-  public long computeLong(long num, int it) {
-    long time = 0, time1, time2;
-    for (int i = 0; i<it; i++) {
-      time1 = System.currentTimeMillis();
-      sendLong(num);
-      time2 = System.currentTimeMillis();
-      time += (time2 - time1);
-    }
-    time = time / it;
-    return time;
-  }
-
-  public static void main(String[] args) throws Exception {
-    HelloWorldClient client = new HelloWorldClient("localhost", 50051);
+    Person request = pessoa;
+    Person response;
     try {
-      /* Access a service running on the local machine on port 50051 */
-      String user = "world";
-      int it = 30;
-      long num = 132057000;
-      System.out.println("Tempo medio para string com "+it+" iteracoes: "+client.computeString(user, it));
-      System.out.println("Tempo medio para long com "+it+" iteracoes: "+client.computeLong(num, it));
-    } finally {
-      client.shutdown();
+      response = blockingStub.sayPerson(request);
+    } catch (StatusRuntimeException e) {
+      logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+      return;
     }
   }
 }

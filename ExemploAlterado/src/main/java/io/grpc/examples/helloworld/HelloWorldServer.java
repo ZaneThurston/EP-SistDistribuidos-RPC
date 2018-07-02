@@ -36,6 +36,7 @@ public class HelloWorldServer {
     int port = 50051;
     server = ServerBuilder.forPort(port)
         .addService(new GreeterImpl())
+        // .addService(new GreeterLong())
         .build()
         .start();
     logger.info("Server started, listening on " + port);
@@ -78,6 +79,8 @@ public class HelloWorldServer {
 
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+
+      // System.out.println(req.getName());
       HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
@@ -85,9 +88,6 @@ public class HelloWorldServer {
 
     @Override
     public void sayLong(LongRequest req, StreamObserver<LongReply> responseObserver) {
-      // logger.info("Número recebido: " + req.getRNumber());
-      // logger.info("Número servidor: " + tempoServidor);
-      System.out.println(req.getReqLong());
       LongReply reply = LongReply.newBuilder().setReplyLong(req.getReqLong()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
@@ -95,8 +95,6 @@ public class HelloWorldServer {
 
     @Override
     public void sayVoid(VoidRequest req, StreamObserver<VoidReply> responseObserver) {
-      // logger.info("Número recebido: " + req.getRNumber());
-      // logger.info("Número servidor: " + tempoServidor);
       VoidReply reply = VoidReply.newBuilder().build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
@@ -104,18 +102,20 @@ public class HelloWorldServer {
 
     @Override
     public void sayEightLong(EightLongRequest req, StreamObserver<EightLongReply> responseObserver) {
-      // logger.info("Número recebido: " + req.getRNumber());
-      // logger.info("Número servidor: " + tempoServidor);
 
       Long[] arrayLongResp = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, 
                               Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
 
       Iterable<Long> ite = Arrays.asList(arrayLongResp);
 
-
-      System.out.println(req.getReqLongArray(1));
-
       EightLongReply reply = EightLongReply.newBuilder().addAllReplyLongArray(ite).build();
+      responseObserver.onNext(reply);
+      responseObserver.onCompleted();
+    }
+
+    @Override
+    public void sayPerson(Person req, StreamObserver<Person> responseObserver) {
+      Person reply = Person.newBuilder().setName("troxa kkk").build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }

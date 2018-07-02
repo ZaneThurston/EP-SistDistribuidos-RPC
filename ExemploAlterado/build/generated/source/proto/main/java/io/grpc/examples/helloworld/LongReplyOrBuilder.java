@@ -8,7 +8,7 @@ public interface LongReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 aNumber = 1;</code>
+   * <code>int64 replyLong = 1;</code>
    */
-  long getANumber();
+  long getReplyLong();
 }

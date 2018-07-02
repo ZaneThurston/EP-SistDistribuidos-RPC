@@ -24,28 +24,61 @@ package helloworld;
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
-  // Sends another greeting
-  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
-  // Sends another greeting
-  rpc sendLong (LongRequest) returns (LongReply) {}
+  // Sends long
+  rpc SayLong (LongRequest) returns (LongReply) {}
+  // Sends void
+  rpc SayVoid (VoidRequest) returns (VoidReply) {}
+  // Sends 8 long
+  rpc SayEightLong (EightLongRequest) returns (EightLongReply) {}
+  // Sends 8 long
+  rpc SayPerson (Person) returns (Person) {}
 }
 
-// The request message containing the user's name.
 message HelloRequest {
   string name = 1;
 }
 
-// The response message containing the greetings
 message HelloReply {
   string message = 1;
 }
 
-// The request message containing the user's name.
 message LongRequest {
-  int64 rNumber = 1;
+  int64 reqLong= 1;
 }
 
-// The response message containing the greetings
 message LongReply {
-  int64 aNumber = 1;
+  int64 replyLong = 1;
+}
+
+message VoidRequest {
+}
+
+message VoidReply {
+}
+
+message EightLongRequest {
+  repeated int64 reqLongArray = 1;
+}
+
+message EightLongReply {
+  repeated int64 replyLongArray = 1;
+}
+
+message Person {
+  string name = 1;
+  int32 id = 2;
+  string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
 }
