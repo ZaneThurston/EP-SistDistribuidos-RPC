@@ -78,18 +78,17 @@ public class HelloWorldClient {
 
   public void sendLong(long number) {
     // logger.info("Will try to send long number... Time: " + System.currentTimeMillis());
-    System.out.println("  Tempo - Início: " + System.currentTimeMillis());
+
     LongRequest request = LongRequest.newBuilder().setRNumber(number).build();
     LongReply response;
     try {
       response = blockingStub.sendLong(request);
-      System.out.println("Tempo - Resposta: " + System.currentTimeMillis());
+
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
     }
-    System.out.println("     Tempo - Fim: " + System.currentTimeMillis());
-    // logger.info("Greeting: " + System.currentTimeMillis());
+  // logger.info("Greeting: " + System.currentTimeMillis());
   }
 
   /**
@@ -127,10 +126,10 @@ public class HelloWorldClient {
     try {
       /* Access a service running on the local machine on port 50051 */
       String user = "world";
-      long number = System.currentTimeMillis();
-
-      // client.greet(user);
-      client.sendLong(number);
+      int it = 30;
+      long num = 132057000;
+      System.out.println("Tempo medio para string com "+it+" iteracoes: "+client.computeString(user, it));
+      System.out.println("Tempo medio para long com "+it+" iteracoes: "+client.computeLong(num, it));
     } finally {
       client.shutdown();
     }
