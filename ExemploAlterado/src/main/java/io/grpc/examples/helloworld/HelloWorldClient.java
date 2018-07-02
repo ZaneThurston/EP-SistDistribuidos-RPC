@@ -19,6 +19,10 @@ package io.grpc.examples.helloworld;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,42 +57,53 @@ public class HelloWorldClient {
 
   /** Say hello to server. */
   public void greet(String name) {
-    // logger.info("Will try to greet " + name + " ...");
-    System.out.println("  Tempo - Início: " + System.currentTimeMillis());
+    
     HelloRequest request = HelloRequest.newBuilder().setName(name).build();
     HelloReply response;
+    
     try {
-      System.out.println("Tempo - Resposta: " + System.currentTimeMillis());
       response = blockingStub.sayHello(request);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
     }
-    // // logger.info("Greeting: " + response.getMessage());
-    // try {
-    //   response = blockingStub.sayHelloAgain(request);
-    //   System.out.println("Tempo - Resposta: " + System.currentTimeMillis());
-    // } catch (StatusRuntimeException e) {
-    //   logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
-    //   return;
-    // }
-    System.out.println("     Tempo - Fim: " + System.currentTimeMillis());
-    // logger.info("Greeting: " + response.getMessage());
-  }
+  } 
 
   public void sendLong(long number) {
-    // logger.info("Will try to send long number... Time: " + System.currentTimeMillis());
 
-    LongRequest request = LongRequest.newBuilder().setRNumber(number).build();
+    LongRequest request = LongRequest.newBuilder().setReqLong(number).build();
     LongReply response;
     try {
-      response = blockingStub.sendLong(request);
-
+      response = blockingStub.sayLong(request);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
     }
-  // logger.info("Greeting: " + System.currentTimeMillis());
+  }
+  public void sendVoid() {
+
+    VoidRequest request = VoidRequest.newBuilder().build();
+    VoidReply response;
+    try {
+      response = blockingStub.sayVoid(request);
+    } catch (StatusRuntimeException e) {
+      logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+      return;
+    }
+  }
+	 
+  public void sendEightLong(Long[] arrayLong) {
+
+    Iterable<Long> ite = Arrays.asList(arrayLong);
+
+    EightLongRequest request = EightLongRequest.newBuilder().addAllReqLongArray(ite).build();
+    EightLongReply response;
+    try {
+      response = blockingStub.sayEightLong(request);
+    } catch (StatusRuntimeException e) {
+      logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+      return;
+    }
   }
 
   /**

@@ -17,6 +17,7 @@
 package io.grpc.examples.helloworld;
 
 import io.grpc.Server;
+import java.util.Arrays;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
@@ -34,8 +35,7 @@ public class HelloWorldServer {
     /* The port on which the server should run */
     int port = 50051;
     server = ServerBuilder.forPort(port)
-        // .addService(new GreeterImpl())
-        .addService(new GreeterLong())
+        .addService(new GreeterImpl())
         .build()
         .start();
     logger.info("Server started, listening on " + port);
@@ -84,19 +84,38 @@ public class HelloWorldServer {
     }
 
     @Override
-    public void sayHelloAgain(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + req.getName()).build();
+    public void sayLong(LongRequest req, StreamObserver<LongReply> responseObserver) {
+      // logger.info("Número recebido: " + req.getRNumber());
+      // logger.info("Número servidor: " + tempoServidor);
+      System.out.println(req.getReqLong());
+      LongReply reply = LongReply.newBuilder().setReplyLong(req.getReqLong()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
-  }
-  static class GreeterLong extends GreeterGrpc.GreeterImplBase {
 
     @Override
-    public void sendLong(LongRequest req, StreamObserver<LongReply> responseObserver) {
+    public void sayVoid(VoidRequest req, StreamObserver<VoidReply> responseObserver) {
       // logger.info("Número recebido: " + req.getRNumber());
       // logger.info("Número servidor: " + tempoServidor);
-      LongReply reply = LongReply.newBuilder().setANumber(req.getRNumber()).build();
+      VoidReply reply = VoidReply.newBuilder().build();
+      responseObserver.onNext(reply);
+      responseObserver.onCompleted();
+    }
+
+    @Override
+    public void sayEightLong(EightLongRequest req, StreamObserver<EightLongReply> responseObserver) {
+      // logger.info("Número recebido: " + req.getRNumber());
+      // logger.info("Número servidor: " + tempoServidor);
+
+      Long[] arrayLongResp = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, 
+                              Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
+
+      Iterable<Long> ite = Arrays.asList(arrayLongResp);
+
+
+      System.out.println(req.getReqLongArray(1));
+
+      EightLongReply reply = EightLongReply.newBuilder().addAllReplyLongArray(ite).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
