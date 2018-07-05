@@ -16,12 +16,14 @@
 
 package io.grpc.examples.helloworld;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Logger;
+
 import io.grpc.Server;
-import java.util.Arrays;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.
@@ -36,7 +38,6 @@ public class HelloWorldServer {
     int port = 50051;
     server = ServerBuilder.forPort(port)
         .addService(new GreeterImpl())
-        // .addService(new GreeterLong())
         .build()
         .start();
     logger.info("Server started, listening on " + port);
@@ -78,10 +79,10 @@ public class HelloWorldServer {
   static class GreeterImpl extends GreeterGrpc.GreeterImplBase {
 
     @Override
-    public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+    public void sayString(StringRequest req, StreamObserver<StringReply> responseObserver) {
 
-      // System.out.println(req.getName());
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+      //Dá um append de "String" ao string recebido na resposta a ser enviada
+      StringReply reply = StringReply.newBuilder().setMessage("String " + req.getName()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
@@ -101,21 +102,61 @@ public class HelloWorldServer {
     }
 
     @Override
-    public void sayEightLong(EightLongRequest req, StreamObserver<EightLongReply> responseObserver) {
+    public void sayVarLong(VarLongRequest req, StreamObserver<VarLongReply> responseObserver) {
 
-      Long[] arrayLongResp = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, 
-                              Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
+      //Inicializa um ArrayList de Long, que é a resposta a ser enviada de volta
+      ArrayList<Long> arrayLongResp = new ArrayList<Long>();
+      //Adiciona todos os valores que foram enviados para o servidor no array de resposta
+      arrayLongResp.addAll(req.getReqLongArrayList());
 
-      Iterable<Long> ite = Arrays.asList(arrayLongResp);
+      Random rand = new Random();
 
-      EightLongReply reply = EightLongReply.newBuilder().addAllReplyLongArray(ite).build();
+      //Para todos os valores dentro do array de resposta, subtrai n/(aleatório de 1 a 5) do valor n
+      for(Long num:arrayLongResp){
+        num -= num/(rand.nextInt(4) + 1);
+      }
+
+      //Cria um Iterable com a resposta para poder enviar de volta 
+      Iterable<Long> ite = arrayLongResp;
+
+      VarLongReply reply = VarLongReply.newBuilder().addAllReplyLongArray(ite).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
 
     @Override
-    public void sayPerson(Person req, StreamObserver<Person> responseObserver) {
-      Person reply = Person.newBuilder().setName("troxa kkk").build();
+    public void sayPerson(Person req, StreamObserver<PersonReply> responseObserver) {
+      
+      Random rand = new Random();
+      
+      //Cria a resposta do tipo Pessoa dando um id e setando um status para a pessoa
+      PersonReply reply = PersonReply.newBuilder()
+                                     .setName(req.getName())
+                                     .setId(rand.nextInt(10000))
+                                     .setStat(PersonReply.Status.CADASTRADO)
+                                     .build();
+      responseObserver.onNext(reply);
+      responseObserver.onCompleted();
+    }
+
+    @Override
+    public void sayVarPerson(VarPerson req, StreamObserver<VarPersonReply> responseObserver) {
+      
+      Random rand = new Random();
+      ArrayList<PersonReply> aux = new ArrayList<>();
+      
+      for(Person p:req.getArrayPersonList()){
+        aux.add(PersonReply.newBuilder()
+                           .setName(p.getName())
+                           .setId(rand.nextInt(10000))
+                           .setStat(PersonReply.Status.CADASTRADO)
+                           .build());
+      }
+
+      //Cria a resposta do tipo Pessoa dando um id e setando um status para a pessoa
+      Iterable<PersonReply> ite = aux;
+
+      VarPersonReply reply = VarPersonReply.newBuilder().addAllArrayPersonReply(ite).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }

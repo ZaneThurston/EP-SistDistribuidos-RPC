@@ -15,15 +15,15 @@ public final class HelloWorldProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_HelloRequest_descriptor;
+    internal_static_helloworld_StringRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_helloworld_HelloRequest_fieldAccessorTable;
+      internal_static_helloworld_StringRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_HelloReply_descriptor;
+    internal_static_helloworld_StringReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_helloworld_HelloReply_fieldAccessorTable;
+      internal_static_helloworld_StringReply_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_helloworld_LongRequest_descriptor;
   static final 
@@ -45,15 +45,15 @@ public final class HelloWorldProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_helloworld_VoidReply_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_EightLongRequest_descriptor;
+    internal_static_helloworld_VarLongRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_helloworld_EightLongRequest_fieldAccessorTable;
+      internal_static_helloworld_VarLongRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_EightLongReply_descriptor;
+    internal_static_helloworld_VarLongReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_helloworld_EightLongReply_fieldAccessorTable;
+      internal_static_helloworld_VarLongReply_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_helloworld_Person_descriptor;
   static final 
@@ -64,6 +64,21 @@ public final class HelloWorldProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_helloworld_Person_PhoneNumber_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_helloworld_PersonReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_helloworld_PersonReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_helloworld_VarPerson_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_helloworld_VarPerson_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_helloworld_VarPersonReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_helloworld_VarPersonReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -73,28 +88,36 @@ public final class HelloWorldProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020helloworld.proto\022\nhelloworld\"\034\n\014HelloR" +
-      "equest\022\014\n\004name\030\001 \001(\t\"\035\n\nHelloReply\022\017\n\007me" +
-      "ssage\030\001 \001(\t\"\036\n\013LongRequest\022\017\n\007reqLong\030\001 " +
-      "\001(\003\"\036\n\tLongReply\022\021\n\treplyLong\030\001 \001(\003\"\r\n\013V" +
-      "oidRequest\"\013\n\tVoidReply\"(\n\020EightLongRequ" +
-      "est\022\024\n\014reqLongArray\030\001 \003(\003\"(\n\016EightLongRe" +
-      "ply\022\026\n\016replyLongArray\030\001 \003(\003\"\331\001\n\006Person\022\014" +
-      "\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005email\030\003 \001(\t\022" +
-      ".\n\006phones\030\004 \003(\0132\036.helloworld.Person.Phon" +
-      "eNumber\032I\n\013PhoneNumber\022\016\n\006number\030\001 \001(\t\022*" +
-      "\n\004type\030\002 \001(\0162\034.helloworld.Person.PhoneTy" +
-      "pe\"+\n\tPhoneType\022\n\n\006MOBILE\020\000\022\010\n\004HOME\020\001\022\010\n" +
-      "\004WORK\020\0022\306\002\n\007Greeter\022>\n\010SayHello\022\030.hellow" +
-      "orld.HelloRequest\032\026.helloworld.HelloRepl" +
-      "y\"\000\022;\n\007SayLong\022\027.helloworld.LongRequest\032" +
-      "\025.helloworld.LongReply\"\000\022;\n\007SayVoid\022\027.he" +
-      "lloworld.VoidRequest\032\025.helloworld.VoidRe" +
-      "ply\"\000\022J\n\014SayEightLong\022\034.helloworld.Eight" +
-      "LongRequest\032\032.helloworld.EightLongReply\"" +
-      "\000\0225\n\tSayPerson\022\022.helloworld.Person\032\022.hel" +
-      "loworld.Person\"\000B6\n\033io.grpc.examples.hel" +
-      "loworldB\017HelloWorldProtoP\001\242\002\003HLWb\006proto3"
+      "\n\020helloworld.proto\022\nhelloworld\"\035\n\rString" +
+      "Request\022\014\n\004name\030\001 \001(\t\"\036\n\013StringReply\022\017\n\007" +
+      "message\030\001 \001(\t\"\036\n\013LongRequest\022\017\n\007reqLong\030" +
+      "\001 \001(\003\"\036\n\tLongReply\022\021\n\treplyLong\030\001 \001(\003\"\r\n" +
+      "\013VoidRequest\"\013\n\tVoidReply\"&\n\016VarLongRequ" +
+      "est\022\024\n\014reqLongArray\030\001 \003(\003\"&\n\014VarLongRepl" +
+      "y\022\026\n\016replyLongArray\030\001 \003(\003\"\315\001\n\006Person\022\014\n\004" +
+      "name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022.\n\006phones\030\003 \003(" +
+      "\0132\036.helloworld.Person.PhoneNumber\032I\n\013Pho" +
+      "neNumber\022\016\n\006number\030\001 \001(\t\022*\n\004type\030\002 \001(\0162\034" +
+      ".helloworld.Person.PhoneType\"+\n\tPhoneTyp" +
+      "e\022\n\n\006MOBILE\020\000\022\010\n\004HOME\020\001\022\010\n\004WORK\020\002\"\202\001\n\013Pe" +
+      "rsonReply\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022,\n\004s" +
+      "tat\030\003 \001(\0162\036.helloworld.PersonReply.Statu" +
+      "s\"+\n\006Status\022\016\n\nCADASTRADO\020\000\022\021\n\rNAOCADAST" +
+      "RADO\020\001\"4\n\tVarPerson\022\'\n\013arrayPerson\030\001 \003(\013" +
+      "2\022.helloworld.Person\"C\n\016VarPersonReply\0221" +
+      "\n\020arrayPersonReply\030\001 \003(\0132\027.helloworld.Pe" +
+      "rsonReply2\215\003\n\007Greeter\022A\n\tSayString\022\031.hel" +
+      "loworld.StringRequest\032\027.helloworld.Strin" +
+      "gReply\"\000\022;\n\007SayVoid\022\027.helloworld.VoidReq" +
+      "uest\032\025.helloworld.VoidReply\"\000\022;\n\007SayLong" +
+      "\022\027.helloworld.LongRequest\032\025.helloworld.L" +
+      "ongReply\"\000\022D\n\nSayVarLong\022\032.helloworld.Va" +
+      "rLongRequest\032\030.helloworld.VarLongReply\"\000" +
+      "\022:\n\tSayPerson\022\022.helloworld.Person\032\027.hell" +
+      "oworld.PersonReply\"\000\022C\n\014SayVarPerson\022\025.h" +
+      "elloworld.VarPerson\032\032.helloworld.VarPers" +
+      "onReply\"\000B6\n\033io.grpc.examples.helloworld" +
+      "B\017HelloWorldProtoP\001\242\002\003HLWb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -108,17 +131,17 @@ public final class HelloWorldProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_helloworld_HelloRequest_descriptor =
+    internal_static_helloworld_StringRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_helloworld_HelloRequest_fieldAccessorTable = new
+    internal_static_helloworld_StringRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_helloworld_HelloRequest_descriptor,
+        internal_static_helloworld_StringRequest_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_helloworld_HelloReply_descriptor =
+    internal_static_helloworld_StringReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_helloworld_HelloReply_fieldAccessorTable = new
+    internal_static_helloworld_StringReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_helloworld_HelloReply_descriptor,
+        internal_static_helloworld_StringReply_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_helloworld_LongRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
@@ -144,30 +167,48 @@ public final class HelloWorldProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_helloworld_VoidReply_descriptor,
         new java.lang.String[] { });
-    internal_static_helloworld_EightLongRequest_descriptor =
+    internal_static_helloworld_VarLongRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_helloworld_EightLongRequest_fieldAccessorTable = new
+    internal_static_helloworld_VarLongRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_helloworld_EightLongRequest_descriptor,
+        internal_static_helloworld_VarLongRequest_descriptor,
         new java.lang.String[] { "ReqLongArray", });
-    internal_static_helloworld_EightLongReply_descriptor =
+    internal_static_helloworld_VarLongReply_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_helloworld_EightLongReply_fieldAccessorTable = new
+    internal_static_helloworld_VarLongReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_helloworld_EightLongReply_descriptor,
+        internal_static_helloworld_VarLongReply_descriptor,
         new java.lang.String[] { "ReplyLongArray", });
     internal_static_helloworld_Person_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_helloworld_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_helloworld_Person_descriptor,
-        new java.lang.String[] { "Name", "Id", "Email", "Phones", });
+        new java.lang.String[] { "Name", "Email", "Phones", });
     internal_static_helloworld_Person_PhoneNumber_descriptor =
       internal_static_helloworld_Person_descriptor.getNestedTypes().get(0);
     internal_static_helloworld_Person_PhoneNumber_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_helloworld_Person_PhoneNumber_descriptor,
         new java.lang.String[] { "Number", "Type", });
+    internal_static_helloworld_PersonReply_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_helloworld_PersonReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_helloworld_PersonReply_descriptor,
+        new java.lang.String[] { "Id", "Name", "Stat", });
+    internal_static_helloworld_VarPerson_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_helloworld_VarPerson_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_helloworld_VarPerson_descriptor,
+        new java.lang.String[] { "ArrayPerson", });
+    internal_static_helloworld_VarPersonReply_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_helloworld_VarPersonReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_helloworld_VarPersonReply_descriptor,
+        new java.lang.String[] { "ArrayPersonReply", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

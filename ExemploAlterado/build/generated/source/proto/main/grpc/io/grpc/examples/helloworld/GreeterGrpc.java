@@ -30,58 +30,31 @@ public final class GreeterGrpc {
   public static final String SERVICE_NAME = "helloworld.Greeter";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.HelloRequest,
-      io.grpc.examples.helloworld.HelloReply> getSayHelloMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.StringRequest,
+      io.grpc.examples.helloworld.StringReply> getSayStringMethod;
 
-  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.HelloRequest,
-      io.grpc.examples.helloworld.HelloReply> getSayHelloMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.HelloRequest, io.grpc.examples.helloworld.HelloReply> getSayHelloMethod;
-    if ((getSayHelloMethod = GreeterGrpc.getSayHelloMethod) == null) {
+  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.StringRequest,
+      io.grpc.examples.helloworld.StringReply> getSayStringMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.StringRequest, io.grpc.examples.helloworld.StringReply> getSayStringMethod;
+    if ((getSayStringMethod = GreeterGrpc.getSayStringMethod) == null) {
       synchronized (GreeterGrpc.class) {
-        if ((getSayHelloMethod = GreeterGrpc.getSayHelloMethod) == null) {
-          GreeterGrpc.getSayHelloMethod = getSayHelloMethod = 
-              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.HelloRequest, io.grpc.examples.helloworld.HelloReply>newBuilder()
+        if ((getSayStringMethod = GreeterGrpc.getSayStringMethod) == null) {
+          GreeterGrpc.getSayStringMethod = getSayStringMethod = 
+              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.StringRequest, io.grpc.examples.helloworld.StringReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "helloworld.Greeter", "SayHello"))
+                  "helloworld.Greeter", "SayString"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.HelloRequest.getDefaultInstance()))
+                  io.grpc.examples.helloworld.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.HelloReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayHello"))
+                  io.grpc.examples.helloworld.StringReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayString"))
                   .build();
           }
         }
      }
-     return getSayHelloMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest,
-      io.grpc.examples.helloworld.LongReply> getSayLongMethod;
-
-  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest,
-      io.grpc.examples.helloworld.LongReply> getSayLongMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest, io.grpc.examples.helloworld.LongReply> getSayLongMethod;
-    if ((getSayLongMethod = GreeterGrpc.getSayLongMethod) == null) {
-      synchronized (GreeterGrpc.class) {
-        if ((getSayLongMethod = GreeterGrpc.getSayLongMethod) == null) {
-          GreeterGrpc.getSayLongMethod = getSayLongMethod = 
-              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.LongRequest, io.grpc.examples.helloworld.LongReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "helloworld.Greeter", "SayLong"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.LongRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.LongReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayLong"))
-                  .build();
-          }
-        }
-     }
-     return getSayLongMethod;
+     return getSayStringMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VoidRequest,
@@ -111,44 +84,71 @@ public final class GreeterGrpc {
      return getSayVoidMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.EightLongRequest,
-      io.grpc.examples.helloworld.EightLongReply> getSayEightLongMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest,
+      io.grpc.examples.helloworld.LongReply> getSayLongMethod;
 
-  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.EightLongRequest,
-      io.grpc.examples.helloworld.EightLongReply> getSayEightLongMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.EightLongRequest, io.grpc.examples.helloworld.EightLongReply> getSayEightLongMethod;
-    if ((getSayEightLongMethod = GreeterGrpc.getSayEightLongMethod) == null) {
+  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest,
+      io.grpc.examples.helloworld.LongReply> getSayLongMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.LongRequest, io.grpc.examples.helloworld.LongReply> getSayLongMethod;
+    if ((getSayLongMethod = GreeterGrpc.getSayLongMethod) == null) {
       synchronized (GreeterGrpc.class) {
-        if ((getSayEightLongMethod = GreeterGrpc.getSayEightLongMethod) == null) {
-          GreeterGrpc.getSayEightLongMethod = getSayEightLongMethod = 
-              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.EightLongRequest, io.grpc.examples.helloworld.EightLongReply>newBuilder()
+        if ((getSayLongMethod = GreeterGrpc.getSayLongMethod) == null) {
+          GreeterGrpc.getSayLongMethod = getSayLongMethod = 
+              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.LongRequest, io.grpc.examples.helloworld.LongReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "helloworld.Greeter", "SayEightLong"))
+                  "helloworld.Greeter", "SayLong"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.EightLongRequest.getDefaultInstance()))
+                  io.grpc.examples.helloworld.LongRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.EightLongReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayEightLong"))
+                  io.grpc.examples.helloworld.LongReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayLong"))
                   .build();
           }
         }
      }
-     return getSayEightLongMethod;
+     return getSayLongMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarLongRequest,
+      io.grpc.examples.helloworld.VarLongReply> getSayVarLongMethod;
+
+  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarLongRequest,
+      io.grpc.examples.helloworld.VarLongReply> getSayVarLongMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarLongRequest, io.grpc.examples.helloworld.VarLongReply> getSayVarLongMethod;
+    if ((getSayVarLongMethod = GreeterGrpc.getSayVarLongMethod) == null) {
+      synchronized (GreeterGrpc.class) {
+        if ((getSayVarLongMethod = GreeterGrpc.getSayVarLongMethod) == null) {
+          GreeterGrpc.getSayVarLongMethod = getSayVarLongMethod = 
+              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.VarLongRequest, io.grpc.examples.helloworld.VarLongReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "helloworld.Greeter", "SayVarLong"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.helloworld.VarLongRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.helloworld.VarLongReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayVarLong"))
+                  .build();
+          }
+        }
+     }
+     return getSayVarLongMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.Person,
-      io.grpc.examples.helloworld.Person> getSayPersonMethod;
+      io.grpc.examples.helloworld.PersonReply> getSayPersonMethod;
 
   public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.Person,
-      io.grpc.examples.helloworld.Person> getSayPersonMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.Person, io.grpc.examples.helloworld.Person> getSayPersonMethod;
+      io.grpc.examples.helloworld.PersonReply> getSayPersonMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.Person, io.grpc.examples.helloworld.PersonReply> getSayPersonMethod;
     if ((getSayPersonMethod = GreeterGrpc.getSayPersonMethod) == null) {
       synchronized (GreeterGrpc.class) {
         if ((getSayPersonMethod = GreeterGrpc.getSayPersonMethod) == null) {
           GreeterGrpc.getSayPersonMethod = getSayPersonMethod = 
-              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.Person, io.grpc.examples.helloworld.Person>newBuilder()
+              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.Person, io.grpc.examples.helloworld.PersonReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "helloworld.Greeter", "SayPerson"))
@@ -156,13 +156,40 @@ public final class GreeterGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   io.grpc.examples.helloworld.Person.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.helloworld.Person.getDefaultInstance()))
+                  io.grpc.examples.helloworld.PersonReply.getDefaultInstance()))
                   .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayPerson"))
                   .build();
           }
         }
      }
      return getSayPersonMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarPerson,
+      io.grpc.examples.helloworld.VarPersonReply> getSayVarPersonMethod;
+
+  public static io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarPerson,
+      io.grpc.examples.helloworld.VarPersonReply> getSayVarPersonMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.helloworld.VarPerson, io.grpc.examples.helloworld.VarPersonReply> getSayVarPersonMethod;
+    if ((getSayVarPersonMethod = GreeterGrpc.getSayVarPersonMethod) == null) {
+      synchronized (GreeterGrpc.class) {
+        if ((getSayVarPersonMethod = GreeterGrpc.getSayVarPersonMethod) == null) {
+          GreeterGrpc.getSayVarPersonMethod = getSayVarPersonMethod = 
+              io.grpc.MethodDescriptor.<io.grpc.examples.helloworld.VarPerson, io.grpc.examples.helloworld.VarPersonReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "helloworld.Greeter", "SayVarPerson"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.helloworld.VarPerson.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.helloworld.VarPersonReply.getDefaultInstance()))
+                  .setSchemaDescriptor(new GreeterMethodDescriptorSupplier("SayVarPerson"))
+                  .build();
+          }
+        }
+     }
+     return getSayVarPersonMethod;
   }
 
   /**
@@ -200,19 +227,9 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public void sayHello(io.grpc.examples.helloworld.HelloRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.HelloReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getSayHelloMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Sends long
-     * </pre>
-     */
-    public void sayLong(io.grpc.examples.helloworld.LongRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getSayLongMethod(), responseObserver);
+    public void sayString(io.grpc.examples.helloworld.StringRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.StringReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getSayStringMethod(), responseObserver);
     }
 
     /**
@@ -227,40 +244,50 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public void sayEightLong(io.grpc.examples.helloworld.EightLongRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.EightLongReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getSayEightLongMethod(), responseObserver);
+    public void sayLong(io.grpc.examples.helloworld.LongRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getSayLongMethod(), responseObserver);
     }
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
+     * </pre>
+     */
+    public void sayVarLong(io.grpc.examples.helloworld.VarLongRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarLongReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getSayVarLongMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Sends person
      * </pre>
      */
     public void sayPerson(io.grpc.examples.helloworld.Person request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.Person> responseObserver) {
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.PersonReply> responseObserver) {
       asyncUnimplementedUnaryCall(getSayPersonMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void sayVarPerson(io.grpc.examples.helloworld.VarPerson request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarPersonReply> responseObserver) {
+      asyncUnimplementedUnaryCall(getSayVarPersonMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSayHelloMethod(),
+            getSayStringMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                io.grpc.examples.helloworld.HelloRequest,
-                io.grpc.examples.helloworld.HelloReply>(
-                  this, METHODID_SAY_HELLO)))
-          .addMethod(
-            getSayLongMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                io.grpc.examples.helloworld.LongRequest,
-                io.grpc.examples.helloworld.LongReply>(
-                  this, METHODID_SAY_LONG)))
+                io.grpc.examples.helloworld.StringRequest,
+                io.grpc.examples.helloworld.StringReply>(
+                  this, METHODID_SAY_STRING)))
           .addMethod(
             getSayVoidMethod(),
             asyncUnaryCall(
@@ -269,19 +296,33 @@ public final class GreeterGrpc {
                 io.grpc.examples.helloworld.VoidReply>(
                   this, METHODID_SAY_VOID)))
           .addMethod(
-            getSayEightLongMethod(),
+            getSayLongMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                io.grpc.examples.helloworld.EightLongRequest,
-                io.grpc.examples.helloworld.EightLongReply>(
-                  this, METHODID_SAY_EIGHT_LONG)))
+                io.grpc.examples.helloworld.LongRequest,
+                io.grpc.examples.helloworld.LongReply>(
+                  this, METHODID_SAY_LONG)))
+          .addMethod(
+            getSayVarLongMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                io.grpc.examples.helloworld.VarLongRequest,
+                io.grpc.examples.helloworld.VarLongReply>(
+                  this, METHODID_SAY_VAR_LONG)))
           .addMethod(
             getSayPersonMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 io.grpc.examples.helloworld.Person,
-                io.grpc.examples.helloworld.Person>(
+                io.grpc.examples.helloworld.PersonReply>(
                   this, METHODID_SAY_PERSON)))
+          .addMethod(
+            getSayVarPersonMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                io.grpc.examples.helloworld.VarPerson,
+                io.grpc.examples.helloworld.VarPersonReply>(
+                  this, METHODID_SAY_VAR_PERSON)))
           .build();
     }
   }
@@ -312,21 +353,10 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public void sayHello(io.grpc.examples.helloworld.HelloRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.HelloReply> responseObserver) {
+    public void sayString(io.grpc.examples.helloworld.StringRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.StringReply> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSayHelloMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * Sends long
-     * </pre>
-     */
-    public void sayLong(io.grpc.examples.helloworld.LongRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getSayLongMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSayStringMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -342,24 +372,43 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public void sayEightLong(io.grpc.examples.helloworld.EightLongRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.EightLongReply> responseObserver) {
+    public void sayLong(io.grpc.examples.helloworld.LongRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSayEightLongMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSayLongMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
+     * </pre>
+     */
+    public void sayVarLong(io.grpc.examples.helloworld.VarLongRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarLongReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSayVarLongMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Sends person
      * </pre>
      */
     public void sayPerson(io.grpc.examples.helloworld.Person request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.Person> responseObserver) {
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.PersonReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSayPersonMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void sayVarPerson(io.grpc.examples.helloworld.VarPerson request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarPersonReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSayVarPersonMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -389,19 +438,9 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public io.grpc.examples.helloworld.HelloReply sayHello(io.grpc.examples.helloworld.HelloRequest request) {
+    public io.grpc.examples.helloworld.StringReply sayString(io.grpc.examples.helloworld.StringRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSayHelloMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * Sends long
-     * </pre>
-     */
-    public io.grpc.examples.helloworld.LongReply sayLong(io.grpc.examples.helloworld.LongRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getSayLongMethod(), getCallOptions(), request);
+          getChannel(), getSayStringMethod(), getCallOptions(), request);
     }
 
     /**
@@ -416,22 +455,39 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public io.grpc.examples.helloworld.EightLongReply sayEightLong(io.grpc.examples.helloworld.EightLongRequest request) {
+    public io.grpc.examples.helloworld.LongReply sayLong(io.grpc.examples.helloworld.LongRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSayEightLongMethod(), getCallOptions(), request);
+          getChannel(), getSayLongMethod(), getCallOptions(), request);
     }
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public io.grpc.examples.helloworld.Person sayPerson(io.grpc.examples.helloworld.Person request) {
+    public io.grpc.examples.helloworld.VarLongReply sayVarLong(io.grpc.examples.helloworld.VarLongRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSayVarLongMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Sends person
+     * </pre>
+     */
+    public io.grpc.examples.helloworld.PersonReply sayPerson(io.grpc.examples.helloworld.Person request) {
       return blockingUnaryCall(
           getChannel(), getSayPersonMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.grpc.examples.helloworld.VarPersonReply sayVarPerson(io.grpc.examples.helloworld.VarPerson request) {
+      return blockingUnaryCall(
+          getChannel(), getSayVarPersonMethod(), getCallOptions(), request);
     }
   }
 
@@ -461,21 +517,10 @@ public final class GreeterGrpc {
      * Sends a greeting
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.HelloReply> sayHello(
-        io.grpc.examples.helloworld.HelloRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.StringReply> sayString(
+        io.grpc.examples.helloworld.StringRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSayHelloMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * Sends long
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.LongReply> sayLong(
-        io.grpc.examples.helloworld.LongRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getSayLongMethod(), getCallOptions()), request);
+          getChannel().newCall(getSayStringMethod(), getCallOptions()), request);
     }
 
     /**
@@ -491,32 +536,52 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.EightLongReply> sayEightLong(
-        io.grpc.examples.helloworld.EightLongRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.LongReply> sayLong(
+        io.grpc.examples.helloworld.LongRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSayEightLongMethod(), getCallOptions()), request);
+          getChannel().newCall(getSayLongMethod(), getCallOptions()), request);
     }
 
     /**
      * <pre>
-     * Sends 8 long
+     * Sends various long
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.Person> sayPerson(
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.VarLongReply> sayVarLong(
+        io.grpc.examples.helloworld.VarLongRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSayVarLongMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Sends person
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.PersonReply> sayPerson(
         io.grpc.examples.helloworld.Person request) {
       return futureUnaryCall(
           getChannel().newCall(getSayPersonMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.VarPersonReply> sayVarPerson(
+        io.grpc.examples.helloworld.VarPerson request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSayVarPersonMethod(), getCallOptions()), request);
+    }
   }
 
-  private static final int METHODID_SAY_HELLO = 0;
-  private static final int METHODID_SAY_LONG = 1;
-  private static final int METHODID_SAY_VOID = 2;
-  private static final int METHODID_SAY_EIGHT_LONG = 3;
+  private static final int METHODID_SAY_STRING = 0;
+  private static final int METHODID_SAY_VOID = 1;
+  private static final int METHODID_SAY_LONG = 2;
+  private static final int METHODID_SAY_VAR_LONG = 3;
   private static final int METHODID_SAY_PERSON = 4;
+  private static final int METHODID_SAY_VAR_PERSON = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -535,25 +600,29 @@ public final class GreeterGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SAY_HELLO:
-          serviceImpl.sayHello((io.grpc.examples.helloworld.HelloRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.HelloReply>) responseObserver);
-          break;
-        case METHODID_SAY_LONG:
-          serviceImpl.sayLong((io.grpc.examples.helloworld.LongRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply>) responseObserver);
+        case METHODID_SAY_STRING:
+          serviceImpl.sayString((io.grpc.examples.helloworld.StringRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.StringReply>) responseObserver);
           break;
         case METHODID_SAY_VOID:
           serviceImpl.sayVoid((io.grpc.examples.helloworld.VoidRequest) request,
               (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VoidReply>) responseObserver);
           break;
-        case METHODID_SAY_EIGHT_LONG:
-          serviceImpl.sayEightLong((io.grpc.examples.helloworld.EightLongRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.EightLongReply>) responseObserver);
+        case METHODID_SAY_LONG:
+          serviceImpl.sayLong((io.grpc.examples.helloworld.LongRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.LongReply>) responseObserver);
+          break;
+        case METHODID_SAY_VAR_LONG:
+          serviceImpl.sayVarLong((io.grpc.examples.helloworld.VarLongRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarLongReply>) responseObserver);
           break;
         case METHODID_SAY_PERSON:
           serviceImpl.sayPerson((io.grpc.examples.helloworld.Person) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.Person>) responseObserver);
+              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.PersonReply>) responseObserver);
+          break;
+        case METHODID_SAY_VAR_PERSON:
+          serviceImpl.sayVarPerson((io.grpc.examples.helloworld.VarPerson) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarPersonReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -616,11 +685,12 @@ public final class GreeterGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new GreeterFileDescriptorSupplier())
-              .addMethod(getSayHelloMethod())
-              .addMethod(getSayLongMethod())
+              .addMethod(getSayStringMethod())
               .addMethod(getSayVoidMethod())
-              .addMethod(getSayEightLongMethod())
+              .addMethod(getSayLongMethod())
+              .addMethod(getSayVarLongMethod())
               .addMethod(getSayPersonMethod())
+              .addMethod(getSayVarPersonMethod())
               .build();
         }
       }

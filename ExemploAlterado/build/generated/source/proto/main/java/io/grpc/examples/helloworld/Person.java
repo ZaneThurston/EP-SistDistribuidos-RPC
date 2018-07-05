@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private Person() {
     name_ = "";
-    id_ = 0;
     email_ = "";
     phones_ = java.util.Collections.emptyList();
   }
@@ -59,21 +58,16 @@ private static final long serialVersionUID = 0L;
             name_ = s;
             break;
           }
-          case 16: {
-
-            id_ = input.readInt32();
-            break;
-          }
-          case 26: {
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             email_ = s;
             break;
           }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
               phones_ = new java.util.ArrayList<io.grpc.examples.helloworld.Person.PhoneNumber>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000004;
             }
             phones_.add(
                 input.readMessage(io.grpc.examples.helloworld.Person.PhoneNumber.parser(), extensionRegistry));
@@ -87,7 +81,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
         phones_ = java.util.Collections.unmodifiableList(phones_);
       }
       this.unknownFields = unknownFields.build();
@@ -865,19 +859,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ID_FIELD_NUMBER = 2;
-  private int id_;
-  /**
-   * <code>int32 id = 2;</code>
-   */
-  public int getId() {
-    return id_;
-  }
-
-  public static final int EMAIL_FIELD_NUMBER = 3;
+  public static final int EMAIL_FIELD_NUMBER = 2;
   private volatile java.lang.Object email_;
   /**
-   * <code>string email = 3;</code>
+   * <code>string email = 2;</code>
    */
   public java.lang.String getEmail() {
     java.lang.Object ref = email_;
@@ -892,7 +877,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string email = 3;</code>
+   * <code>string email = 2;</code>
    */
   public com.google.protobuf.ByteString
       getEmailBytes() {
@@ -908,35 +893,35 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PHONES_FIELD_NUMBER = 4;
+  public static final int PHONES_FIELD_NUMBER = 3;
   private java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber> phones_;
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   public java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber> getPhonesList() {
     return phones_;
   }
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   public java.util.List<? extends io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder> 
       getPhonesOrBuilderList() {
     return phones_;
   }
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   public int getPhonesCount() {
     return phones_.size();
   }
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   public io.grpc.examples.helloworld.Person.PhoneNumber getPhones(int index) {
     return phones_.get(index);
   }
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   public io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
       int index) {
@@ -958,14 +943,11 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (id_ != 0) {
-      output.writeInt32(2, id_);
-    }
     if (!getEmailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, email_);
     }
     for (int i = 0; i < phones_.size(); i++) {
-      output.writeMessage(4, phones_.get(i));
+      output.writeMessage(3, phones_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -978,16 +960,12 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, id_);
-    }
     if (!getEmailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, email_);
     }
     for (int i = 0; i < phones_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, phones_.get(i));
+        .computeMessageSize(3, phones_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -1007,8 +985,6 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getName()
         .equals(other.getName());
-    result = result && (getId()
-        == other.getId());
     result = result && getEmail()
         .equals(other.getEmail());
     result = result && getPhonesList()
@@ -1026,8 +1002,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getEmail().hashCode();
     if (getPhonesCount() > 0) {
@@ -1166,13 +1140,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
-      id_ = 0;
-
       email_ = "";
 
       if (phonesBuilder_ == null) {
         phones_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
         phonesBuilder_.clear();
       }
@@ -1201,12 +1173,11 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.name_ = name_;
-      result.id_ = id_;
       result.email_ = email_;
       if (phonesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
           phones_ = java.util.Collections.unmodifiableList(phones_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.phones_ = phones_;
       } else {
@@ -1258,9 +1229,6 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
         onChanged();
@@ -1269,7 +1237,7 @@ private static final long serialVersionUID = 0L;
         if (!other.phones_.isEmpty()) {
           if (phones_.isEmpty()) {
             phones_ = other.phones_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePhonesIsMutable();
             phones_.addAll(other.phones_);
@@ -1282,7 +1250,7 @@ private static final long serialVersionUID = 0L;
             phonesBuilder_.dispose();
             phonesBuilder_ = null;
             phones_ = other.phones_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
             phonesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPhonesFieldBuilder() : null;
@@ -1388,35 +1356,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
-    /**
-     * <code>int32 id = 2;</code>
-     */
-    public int getId() {
-      return id_;
-    }
-    /**
-     * <code>int32 id = 2;</code>
-     */
-    public Builder setId(int value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 id = 2;</code>
-     */
-    public Builder clearId() {
-      
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object email_ = "";
     /**
-     * <code>string email = 3;</code>
+     * <code>string email = 2;</code>
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -1431,7 +1373,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 3;</code>
+     * <code>string email = 2;</code>
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -1447,7 +1389,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string email = 3;</code>
+     * <code>string email = 2;</code>
      */
     public Builder setEmail(
         java.lang.String value) {
@@ -1460,7 +1402,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 3;</code>
+     * <code>string email = 2;</code>
      */
     public Builder clearEmail() {
       
@@ -1469,7 +1411,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string email = 3;</code>
+     * <code>string email = 2;</code>
      */
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
@@ -1486,9 +1428,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber> phones_ =
       java.util.Collections.emptyList();
     private void ensurePhonesIsMutable() {
-      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
         phones_ = new java.util.ArrayList<io.grpc.examples.helloworld.Person.PhoneNumber>(phones_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1496,7 +1438,7 @@ private static final long serialVersionUID = 0L;
         io.grpc.examples.helloworld.Person.PhoneNumber, io.grpc.examples.helloworld.Person.PhoneNumber.Builder, io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder> phonesBuilder_;
 
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber> getPhonesList() {
       if (phonesBuilder_ == null) {
@@ -1506,7 +1448,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public int getPhonesCount() {
       if (phonesBuilder_ == null) {
@@ -1516,7 +1458,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public io.grpc.examples.helloworld.Person.PhoneNumber getPhones(int index) {
       if (phonesBuilder_ == null) {
@@ -1526,7 +1468,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder setPhones(
         int index, io.grpc.examples.helloworld.Person.PhoneNumber value) {
@@ -1543,7 +1485,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder setPhones(
         int index, io.grpc.examples.helloworld.Person.PhoneNumber.Builder builderForValue) {
@@ -1557,7 +1499,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder addPhones(io.grpc.examples.helloworld.Person.PhoneNumber value) {
       if (phonesBuilder_ == null) {
@@ -1573,7 +1515,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder addPhones(
         int index, io.grpc.examples.helloworld.Person.PhoneNumber value) {
@@ -1590,7 +1532,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder addPhones(
         io.grpc.examples.helloworld.Person.PhoneNumber.Builder builderForValue) {
@@ -1604,7 +1546,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder addPhones(
         int index, io.grpc.examples.helloworld.Person.PhoneNumber.Builder builderForValue) {
@@ -1618,7 +1560,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder addAllPhones(
         java.lang.Iterable<? extends io.grpc.examples.helloworld.Person.PhoneNumber> values) {
@@ -1633,12 +1575,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder clearPhones() {
       if (phonesBuilder_ == null) {
         phones_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         phonesBuilder_.clear();
@@ -1646,7 +1588,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public Builder removePhones(int index) {
       if (phonesBuilder_ == null) {
@@ -1659,14 +1601,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public io.grpc.examples.helloworld.Person.PhoneNumber.Builder getPhonesBuilder(
         int index) {
       return getPhonesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
         int index) {
@@ -1676,7 +1618,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public java.util.List<? extends io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder> 
          getPhonesOrBuilderList() {
@@ -1687,14 +1629,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public io.grpc.examples.helloworld.Person.PhoneNumber.Builder addPhonesBuilder() {
       return getPhonesFieldBuilder().addBuilder(
           io.grpc.examples.helloworld.Person.PhoneNumber.getDefaultInstance());
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public io.grpc.examples.helloworld.Person.PhoneNumber.Builder addPhonesBuilder(
         int index) {
@@ -1702,7 +1644,7 @@ private static final long serialVersionUID = 0L;
           index, io.grpc.examples.helloworld.Person.PhoneNumber.getDefaultInstance());
     }
     /**
-     * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+     * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
      */
     public java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber.Builder> 
          getPhonesBuilderList() {
@@ -1715,7 +1657,7 @@ private static final long serialVersionUID = 0L;
         phonesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grpc.examples.helloworld.Person.PhoneNumber, io.grpc.examples.helloworld.Person.PhoneNumber.Builder, io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder>(
                 phones_,
-                ((bitField0_ & 0x00000008) == 0x00000008),
+                ((bitField0_ & 0x00000004) == 0x00000004),
                 getParentForChildren(),
                 isClean());
         phones_ = null;

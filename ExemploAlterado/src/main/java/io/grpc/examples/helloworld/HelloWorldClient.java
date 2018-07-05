@@ -16,14 +16,16 @@
 
 package io.grpc.examples.helloworld;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
@@ -56,11 +58,11 @@ public class HelloWorldClient {
   /** Say hello to server. */
   public void greet(String name) {
     
-    HelloRequest request = HelloRequest.newBuilder().setName(name).build();
-    HelloReply response;
+    StringRequest request = StringRequest.newBuilder().setName(name).build();
+    StringReply response;
     
     try {
-      response = blockingStub.sayHello(request);
+      response = blockingStub.sayString(request);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
@@ -91,14 +93,14 @@ public class HelloWorldClient {
     }
   }
  
-  public void sendEightLong(Long[] arrayLong) {
+  public void sendVarLong(Long[] arrayLong) {
 
     Iterable<Long> ite = Arrays.asList(arrayLong);
 
-    EightLongRequest request = EightLongRequest.newBuilder().addAllReqLongArray(ite).build();
-    EightLongReply response;
+    VarLongRequest request = VarLongRequest.newBuilder().addAllReqLongArray(ite).build();
+    VarLongReply response;
     try {
-      response = blockingStub.sayEightLong(request);
+      response = blockingStub.sayVarLong(request);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
@@ -108,9 +110,37 @@ public class HelloWorldClient {
   public void sendPerson(Person pessoa) {
 
     Person request = pessoa;
-    Person response;
+    PersonReply response;
     try {
       response = blockingStub.sayPerson(request);
+    } catch (StatusRuntimeException e) {
+      logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+      return;
+    }
+  }
+
+  public void sendVarPerson(String[] nomes) {
+
+    Random rand = new Random();
+    ArrayList<Person> aux = new ArrayList<>();
+    
+    for(String s:nomes){
+      aux.add(Person.newBuilder().setName(s)
+                                 .setEmail(s + "@mail.com")
+                                 .addPhones(
+                                     Person.PhoneNumber.newBuilder()
+                                     .setNumber("666-"+ rand.nextInt(10) + rand.nextInt(10) + rand.nextInt(10) + rand.nextInt(10))
+                                     .setType(Person.PhoneType.HOME))
+                                 .build());
+    }
+    
+    Iterable<Person> ite = aux;
+
+    VarPerson request = VarPerson.newBuilder().addAllArrayPerson(ite).build();
+    VarPersonReply response;
+    
+    try {
+      response = blockingStub.sayVarPerson(request);
     } catch (StatusRuntimeException e) {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;

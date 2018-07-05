@@ -18,40 +18,35 @@ public interface PersonOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>int32 id = 2;</code>
-   */
-  int getId();
-
-  /**
-   * <code>string email = 3;</code>
+   * <code>string email = 2;</code>
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 3;</code>
+   * <code>string email = 2;</code>
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   java.util.List<io.grpc.examples.helloworld.Person.PhoneNumber> 
       getPhonesList();
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   io.grpc.examples.helloworld.Person.PhoneNumber getPhones(int index);
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   int getPhonesCount();
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   java.util.List<? extends io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder> 
       getPhonesOrBuilderList();
   /**
-   * <code>repeated .helloworld.Person.PhoneNumber phones = 4;</code>
+   * <code>repeated .helloworld.Person.PhoneNumber phones = 3;</code>
    */
   io.grpc.examples.helloworld.Person.PhoneNumberOrBuilder getPhonesOrBuilder(
       int index);

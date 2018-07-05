@@ -22,23 +22,25 @@ package helloworld;
 
 // The greeting service definition.
 service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
-  // Sends long
-  rpc SayLong (LongRequest) returns (LongReply) {}
-  // Sends void
+  // Envia String
+  rpc SayString (StringRequest) returns (StringReply) {}
+  // Envia void
   rpc SayVoid (VoidRequest) returns (VoidReply) {}
-  // Sends 8 long
-  rpc SayEightLong (EightLongRequest) returns (EightLongReply) {}
-  // Sends 8 long
-  rpc SayPerson (Person) returns (Person) {}
+  // Envia long
+  rpc SayLong (LongRequest) returns (LongReply) {}
+  // Envia vários long
+  rpc SayVarLong (VarLongRequest) returns (VarLongReply) {}
+  // Envia pessoa
+  rpc SayPerson (Person) returns (PersonReply) {}
+  // Envia array de pessoas
+  rpc SayVarPerson (VarPerson) returns (VarPersonReply) {}
 }
 
-message HelloRequest {
+message StringRequest {
   string name = 1;
 }
 
-message HelloReply {
+message StringReply {
   string message = 1;
 }
 
@@ -56,18 +58,17 @@ message VoidRequest {
 message VoidReply {
 }
 
-message EightLongRequest {
+message VarLongRequest {
   repeated int64 reqLongArray = 1;
 }
 
-message EightLongReply {
+message VarLongReply {
   repeated int64 replyLongArray = 1;
 }
 
 message Person {
   string name = 1;
-  int32 id = 2;
-  string email = 3;
+  string email = 2;
 
   enum PhoneType {
     MOBILE = 0;
@@ -80,5 +81,24 @@ message Person {
     PhoneType type = 2;
   }
 
-  repeated PhoneNumber phones = 4;
+  repeated PhoneNumber phones = 3;
+}
+
+message PersonReply{
+  int32 id = 1;
+  string name = 2;
+
+  enum Status {
+    CADASTRADO = 0;
+    NAOCADASTRADO = 1;
+  }
+  Status stat = 3;
+}
+
+message VarPerson{
+  repeated Person arrayPerson = 1;
+}
+
+message VarPersonReply{
+  repeated PersonReply arrayPersonReply = 1;
 }

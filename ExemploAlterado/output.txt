@@ -1,0 +1,19 @@
+Void: 14
+Long: 32
+8L:   33
+Compl:29
+str 1: 37
+str 2: 62
+str 4: 24
+str 8: 42
+str 16: 31
+str 32: 16
+str 64: 29
+str 128: 18
+str 256: 35
+str 512: 36
+str 1024: 17
+str 2048: 23
+str 4096: 27
+str 8192: 30
+str 16384: 46
