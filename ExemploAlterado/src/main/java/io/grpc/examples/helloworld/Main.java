@@ -1,6 +1,5 @@
 package io.grpc.examples.helloworld;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +18,7 @@ public class Main {
         //define quantas vezes a média será calculada
         int numRuns = 50;
         //define a potência 2^pot, tamanho base usado para construção de algumas mensagens
-        int pot = 20;
+        int pot = 15;
         
         //Variáveis auxiliares para envio de informações
         long number = Long.MAX_VALUE;
@@ -42,6 +41,7 @@ public class Main {
         for(int i = 0; i <= numRuns; i++){
             System.out.print(computeVoid(it) + ",");
         }
+
         //Calcula média para envio de Long e recebimento de Long
         System.out.print("\nLong: ");
         for(int j = 0; j <= numRuns; j++){
@@ -55,7 +55,7 @@ public class Main {
         }
         
         //Calcula média para envio de um array de Person e recebimento de um array de PersonReply
-        for(int i = 1; i <= pot; i++){
+        for(int i = 1; i <= 17; i++){
             System.out.print("\nVarPerson " + (int)Math.pow(2, i) + ": ");
             nomes = createStringArray((int)Math.pow(2, i));
             for(int j = 0; j <= numRuns; j++){
@@ -64,7 +64,8 @@ public class Main {
         }
 
         //Envia requisições com um array de Long (de tamanho variável em potências de 2) e recebimento de um array do mesmo tamanho
-        for(int i = 1; i <= pot; i++){
+        //i MAXIMO É 18
+        for(int i = 1; i <= 18; i++){
             System.out.print("\nLong " + (int)Math.pow(2, i) + ": ");
             arrayLong = createLongArray((int)Math.pow(2, i));
             for(int j = 0; j <= numRuns; j++){
@@ -72,8 +73,8 @@ public class Main {
             }
         }
         
-        //Envia requisições com um string (de tamanho variável em potências de 2) e recebimento de um array do mesmo tamanho
-        for(int i = 1; i <= pot; i++){
+        // Envia requisições com um string (de tamanho variável em potências de 2) e recebimento de um array do mesmo tamanho
+        for(int i = 1; i <= 21; i++){
             System.out.print("\nstr " +(int)Math.pow(2, i) + ": ");
             for(int j = 0; j <= numRuns; j++){
                 System.out.print(computeString(StringUtils.repeat(str, (int)Math.pow(2, i)), it) + ",");

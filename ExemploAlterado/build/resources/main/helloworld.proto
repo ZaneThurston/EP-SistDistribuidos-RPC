@@ -22,17 +22,17 @@ package helloworld;
 
 // The greeting service definition.
 service Greeter {
-  // Sends a greeting
+  // Envia String
   rpc SayString (StringRequest) returns (StringReply) {}
-  // Sends void
+  // Envia void
   rpc SayVoid (VoidRequest) returns (VoidReply) {}
-  // Sends various long
+  // Envia long
   rpc SayLong (LongRequest) returns (LongReply) {}
-  // Sends various long
+  // Envia vários long
   rpc SayVarLong (VarLongRequest) returns (VarLongReply) {}
-  // Sends person
+  // Envia pessoa
   rpc SayPerson (Person) returns (PersonReply) {}
-  //
+  // Envia array de pessoas
   rpc SayVarPerson (VarPerson) returns (VarPersonReply) {}
 }
 

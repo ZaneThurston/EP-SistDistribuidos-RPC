@@ -224,7 +224,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * Envia String
      * </pre>
      */
     public void sayString(io.grpc.examples.helloworld.StringRequest request,
@@ -234,7 +234,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends void
+     * Envia void
      * </pre>
      */
     public void sayVoid(io.grpc.examples.helloworld.VoidRequest request,
@@ -244,7 +244,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia long
      * </pre>
      */
     public void sayLong(io.grpc.examples.helloworld.LongRequest request,
@@ -254,7 +254,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia vários long
      * </pre>
      */
     public void sayVarLong(io.grpc.examples.helloworld.VarLongRequest request,
@@ -264,7 +264,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends person
+     * Envia pessoa
      * </pre>
      */
     public void sayPerson(io.grpc.examples.helloworld.Person request,
@@ -273,6 +273,9 @@ public final class GreeterGrpc {
     }
 
     /**
+     * <pre>
+     * Envia array de pessoas
+     * </pre>
      */
     public void sayVarPerson(io.grpc.examples.helloworld.VarPerson request,
         io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarPersonReply> responseObserver) {
@@ -350,7 +353,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * Envia String
      * </pre>
      */
     public void sayString(io.grpc.examples.helloworld.StringRequest request,
@@ -361,7 +364,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends void
+     * Envia void
      * </pre>
      */
     public void sayVoid(io.grpc.examples.helloworld.VoidRequest request,
@@ -372,7 +375,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia long
      * </pre>
      */
     public void sayLong(io.grpc.examples.helloworld.LongRequest request,
@@ -383,7 +386,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia vários long
      * </pre>
      */
     public void sayVarLong(io.grpc.examples.helloworld.VarLongRequest request,
@@ -394,7 +397,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends person
+     * Envia pessoa
      * </pre>
      */
     public void sayPerson(io.grpc.examples.helloworld.Person request,
@@ -404,6 +407,9 @@ public final class GreeterGrpc {
     }
 
     /**
+     * <pre>
+     * Envia array de pessoas
+     * </pre>
      */
     public void sayVarPerson(io.grpc.examples.helloworld.VarPerson request,
         io.grpc.stub.StreamObserver<io.grpc.examples.helloworld.VarPersonReply> responseObserver) {
@@ -435,7 +441,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * Envia String
      * </pre>
      */
     public io.grpc.examples.helloworld.StringReply sayString(io.grpc.examples.helloworld.StringRequest request) {
@@ -445,7 +451,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends void
+     * Envia void
      * </pre>
      */
     public io.grpc.examples.helloworld.VoidReply sayVoid(io.grpc.examples.helloworld.VoidRequest request) {
@@ -455,7 +461,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia long
      * </pre>
      */
     public io.grpc.examples.helloworld.LongReply sayLong(io.grpc.examples.helloworld.LongRequest request) {
@@ -465,7 +471,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia vários long
      * </pre>
      */
     public io.grpc.examples.helloworld.VarLongReply sayVarLong(io.grpc.examples.helloworld.VarLongRequest request) {
@@ -475,7 +481,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends person
+     * Envia pessoa
      * </pre>
      */
     public io.grpc.examples.helloworld.PersonReply sayPerson(io.grpc.examples.helloworld.Person request) {
@@ -484,6 +490,9 @@ public final class GreeterGrpc {
     }
 
     /**
+     * <pre>
+     * Envia array de pessoas
+     * </pre>
      */
     public io.grpc.examples.helloworld.VarPersonReply sayVarPerson(io.grpc.examples.helloworld.VarPerson request) {
       return blockingUnaryCall(
@@ -514,7 +523,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends a greeting
+     * Envia String
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.StringReply> sayString(
@@ -525,7 +534,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends void
+     * Envia void
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.VoidReply> sayVoid(
@@ -536,7 +545,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia long
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.LongReply> sayLong(
@@ -547,7 +556,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends various long
+     * Envia vários long
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.VarLongReply> sayVarLong(
@@ -558,7 +567,7 @@ public final class GreeterGrpc {
 
     /**
      * <pre>
-     * Sends person
+     * Envia pessoa
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.PersonReply> sayPerson(
@@ -568,6 +577,9 @@ public final class GreeterGrpc {
     }
 
     /**
+     * <pre>
+     * Envia array de pessoas
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.helloworld.VarPersonReply> sayVarPerson(
         io.grpc.examples.helloworld.VarPerson request) {
