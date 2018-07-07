@@ -7,16 +7,14 @@ import org.apache.commons.lang3.StringUtils;
 public class Main {
 
     // static HelloWorldClient client = new HelloWorldClient(ip, 50051);
-    // static String ip = "192.168.15.15";
-    // static String ip = "179.187.57.25";
     static String ip = "localhost";
 
     public static void main(String[]args){
        
         //define o número de iterações que serão rodadas a cada vez para cálculo da média
-        int it = 50;
+        int it = 25;
         //define quantas vezes a média será calculada
-        int numRuns = 50;
+        int numRuns = 10;
         //define a potência 2^pot, tamanho base usado para construção de algumas mensagens
         int pot = 15;
         
@@ -36,7 +34,7 @@ public class Main {
                                   .setType(Person.PhoneType.HOME))
                               .build();
 
-        //Calcula média para envio de "void" e recebimento de "void"
+        // //Calcula média para envio de "void" e recebimento de "void"
         System.out.print("Void: ");
         for(int i = 0; i <= numRuns; i++){
             System.out.print(computeVoid(it) + ",");
@@ -48,14 +46,14 @@ public class Main {
             System.out.print(computeLong(number, it) + ",");
         }
 
-        //Calcula média para envio de Person e recebimento de PersonReply
+        // //Calcula média para envio de Person e recebimento de PersonReply
         System.out.print("\nPerson: ");
         for(int i = 0; i <= numRuns; i++){
             System.out.print(computePerson(pessoa, it) + ",");
         }
         
         //Calcula média para envio de um array de Person e recebimento de um array de PersonReply
-        for(int i = 1; i <= 17; i++){
+        for(int i = 1; i < 17; i++){
             System.out.print("\nVarPerson " + (int)Math.pow(2, i) + ": ");
             nomes = createStringArray((int)Math.pow(2, i));
             for(int j = 0; j <= numRuns; j++){
@@ -65,7 +63,7 @@ public class Main {
 
         //Envia requisições com um array de Long (de tamanho variável em potências de 2) e recebimento de um array do mesmo tamanho
         //i MAXIMO É 18
-        for(int i = 1; i <= 18; i++){
+        for(int i = 17; i <= 18; i++){
             System.out.print("\nLong " + (int)Math.pow(2, i) + ": ");
             arrayLong = createLongArray((int)Math.pow(2, i));
             for(int j = 0; j <= numRuns; j++){
