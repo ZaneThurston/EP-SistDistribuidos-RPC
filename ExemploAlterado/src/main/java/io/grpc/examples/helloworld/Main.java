@@ -63,7 +63,7 @@ public class Main {
 
         //Envia requisições com um array de Long (de tamanho variável em potências de 2) e recebimento de um array do mesmo tamanho
         //i MAXIMO É 18
-        for(int i = 17; i <= 18; i++){
+        for(int i = 1; i <= 18; i++){
             System.out.print("\nLong " + (int)Math.pow(2, i) + ": ");
             arrayLong = createLongArray((int)Math.pow(2, i));
             for(int j = 0; j <= numRuns; j++){
