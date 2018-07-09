@@ -3,11 +3,15 @@ import time
 import Person
 from math import pow
 
+
+ip = "localhost"
+porta = 50051
+
 #time measuring
-file = open('result.html', 'w')
+file = open('result - ' + str(time.time()) + '.html', 'w')
 
 # Define quantas iterações serão rodadas para cálculo da média
-function_tries = 10
+num_itera = 25
 
 # Define quantas vezes a média será calculada
 num_runs = 10
@@ -22,31 +26,21 @@ def timing(f):
             file.write("<td>"+f.__name__+ " " + str(args[1])+"</td>")
         else:
             file.write("<td>"+f.__name__+"</td>")
-        # if len(args) > 0:
-        #     # file.write("<td>"+f.__name__+ " " + str(args[0])+"</td>")
-        #     print(f.__name__ + " " + str(args[0]) + ": ", end=" ")
-        # else:
-        #     # file.write("<td>"+f.__name__+"</td>")
-        #     print(f.__name__ +": ", end=" ")
         for j in range(num_runs):
             total = 0
             ret = None
             # Aqui roda as 50 vezes
-            for i in range(function_tries):
+            for i in range(num_itera):
                 time1 = int(round(time.time() * 1000))
                 ret = f(*args)
                 time2 = int(round(time.time() * 1000))
                 total = total + (time2 - time1)
-            file.write("<td>" + str(total/function_tries) +"</td>")
-            # print(str(total/function_tries) + ",", end=" ")
-            # print("Tempo iteração " +str(j) + " : " + str(total/function_tries))
+            file.write("<td>" + str(total/num_itera) +"</td>")
         file.write("</tr>")
-        # print("\n")
         return ret
     return wrap
 
-
-c = rpyc.connect("localhost", 50051,config = {"allow_public_attrs" : True})
+c = rpyc.connect(ip, porta, config = {"allow_public_attrs" : True})
 
 person_send = Person.MyPerson()
 phone = Person.PhoneNumber()
